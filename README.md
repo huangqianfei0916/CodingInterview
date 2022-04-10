@@ -1,3 +1,2 @@
 # CodingInterview
-code practice
 leetcode
