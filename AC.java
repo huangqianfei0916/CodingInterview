@@ -76,12 +76,7 @@ public class AC {
         }
     }
 
-    public HashMap<String, ArrayList<Integer>> search(String query){
-        HashMap<String, ArrayList<Integer>> res = new HashMap<>();
-        for (String pattern : target_pattern) {
-            res.put(pattern, new ArrayList<Integer>());
-        }
-
+    public void search(String query, BufferedWriter bufferedWriter) throws IOException {
         ACNode current = root;
         int i = 0;
         while(i < query.length()){
@@ -90,12 +85,12 @@ public class AC {
                 current = current.children.get(ch);
 
                 if(current.patternStr != "None"){
-                    res.get(current.patternStr).add(i - current.patternStr.length()+1);
+                    bufferedWriter.write(current.patternStr + ":" + (i - current.patternStr.length()+1) + "\t");
                 }
 
                 ACNode temp = current;
                 while(temp.fail != null && temp.fail.patternStr != "None"){
-                    res.get(temp.fail.patternStr).add(i - temp.fail.patternStr.length()+1);
+                    bufferedWriter.write(temp.fail.patternStr + ":" + (i - temp.fail.patternStr.length()+1) + "\t");
                     temp = temp.fail;
                 }
                 ++i;
@@ -107,7 +102,7 @@ public class AC {
                 }
             }
         }
-        return res;
+        bufferedWriter.newLine();
     }
 
     public void buildTrieTree(ArrayList<String> pattern){
@@ -154,7 +149,7 @@ public class AC {
         BufferedReader br = new BufferedReader(isr);
         String line = "";
         while ((line = br.readLine()) != null) {
-                list.add(line);
+            list.add(line);
         }
         br.close();
         isr.close();
@@ -167,30 +162,38 @@ public class AC {
         Options options = new Options();
         options.addOption("p", "parser", true, "parser set");
         options.addOption("q", "query", true, "query set");
+        options.addOption("s", "save", true, "save file");
         CommandLine commandLine = parser.parse(options, args);
-        String path;
-        String text;
+
+        String path = "";
+        String textPath = "";
+        String savePath = "";
+        BufferedWriter bufferedWriter = null;
+
         if (commandLine.hasOption('p')) {
             path = commandLine.getOptionValue('p');
-        }else{
-            path = "pattern.txt";
         }
         if (commandLine.hasOption('q')) {
-            text = commandLine.getOptionValue('q');
-        }else{
-            text = "abchnijabdfkabd";
+            textPath = commandLine.getOptionValue('q');
         }
+        if (commandLine.hasOption('s')) {
+            savePath = commandLine.getOptionValue('s');
+        }
+
+        bufferedWriter = new BufferedWriter(new FileWriter(savePath));
         ArrayList<String> pattern = readFile(path);
+        ArrayList<String> textList = readFile(textPath);
 
         long start = System.currentTimeMillis();
         AC ac = new AC(pattern);
-        HashMap<String, ArrayList<Integer>> result = ac.search(text);
-        System.out.println("cost time: " + (System.currentTimeMillis() - start) + " ms");
-
-        System.out.println(text);
-        for(Map.Entry<String, ArrayList<Integer>> entry : result.entrySet()){
-            System.out.println(entry.getKey()+" : " + entry.getValue());
+        for (String text : textList) {
+            bufferedWriter.write(text + "\t");
+            ac.search(text, bufferedWriter);
         }
+        System.out.println("cost time: " + (System.currentTimeMillis() - start) + " ms");
+        bufferedWriter.flush();
+        bufferedWriter.close();
 
     }
 }
+
