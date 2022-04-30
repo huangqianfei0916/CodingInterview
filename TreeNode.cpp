@@ -1,6 +1,9 @@
-#include<iostream>
-using namespace std;
+#include <iostream>
 
+#include <vector>
+#include <stack>
+
+using namespace std;
 
 struct TreeNode
 {
@@ -16,6 +19,31 @@ struct TreeNode
 
 };
 
+void print_vec(vector<int> vec) {
+    for (int i = 0; i < vec.size(); ++i) {
+        cout << vec[i] << endl;
+    }
+}
+
+void pre_print(TreeNode* root){
+    vector<int> vec;
+    stack<TreeNode*> s;
+    TreeNode* p = root;
+
+    while (!s.empty() || p != nullptr) {
+        if (p != nullptr){
+            s.push(p);
+            vec.push_back(p->val);
+            p = p->left;
+
+        } else {
+            TreeNode* temp = s.top();
+            s.pop();
+            p = temp->right;
+        }
+    }
+    print_vec(vec);
+}
 
 
 int main(){
@@ -32,6 +60,8 @@ int main(){
     d1->right = d4;
     d2->left = d5;
     d2->right = d6;
+
+    pre_print(d);
 
     return 0;
 }
