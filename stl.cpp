@@ -56,7 +56,7 @@ void vector_demo(){
 
 // string 不是引用传递
 void stringDemo(){
-    string demo = "sponsorfly";
+    string demo = "sponsorfly hqf baidu";
     // 遍历
     for(int i = 0; i < demo.size(); ++i){
         cout << demo[i] << endl;
@@ -64,13 +64,17 @@ void stringDemo(){
     // 反转
     reverse(demo.begin(), demo.end());
     cout << demo << endl;
-    // 子字符串
+    // 子字符串，第一个数字代表从哪个index开始，第二个代表从index1开始截取的长度，不写则index1到结尾
     string temp = demo.substr(2,3);
     cout << temp << endl;
     // 查找
-    size_t idx = demo.find("ops");
+    string demo1 = "sponsorfly hqf baidu";
+    size_t idx = demo1.find(" ");
+ 
     if(idx != string::npos){
-        cout << "no";
+        cout << idx;
+    }else {
+        cout << "no find !";
     }
     
 }
@@ -164,19 +168,19 @@ void dequeDemo(){
 
 int main(){
     // vector_demo();
-    // stringDemo();
+    stringDemo();
     // listDemo();
     // setDemo();
     // mapDemo();
     // queueDemo();
     // stackDemo();
-    dequeDemo();
+    // dequeDemo();
 
 
-    int a[200];
-    a[0] = 200;
-    arrDemo(a);
-    cout << a[0];
+    // int a[200];
+    // a[0] = 200;
+    // arrDemo(a);
+    // cout << a[0];
 
 
     return 0;
