@@ -99,10 +99,20 @@ void stringDemo() {
     }
 
     vector<string> res;
-    split(demo1, res, " ");
+    string demo2 = "黄乾飞 spon fly 哈哈哈";
+    split(demo2, res, " ");
     cout << res.size() << endl;
     for (int i = 0; i < res.size(); ++i) {
         cout << res[i] << endl;
+    }
+    string test;
+    for (int i = 0; i < demo2.size(); i+=3) {
+        test += demo[i];
+        test += demo[i+1];
+        test += demo[i+2];
+        if (test == "哈") {
+            cout << "yes" << endl;
+        }
     }
     
 }
