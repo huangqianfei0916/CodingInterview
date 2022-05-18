@@ -148,6 +148,7 @@ void setDemo() {
     } else {
         cout << "no" << *f << endl;
     }
+    cout << s.size();
 
 }
 
@@ -206,9 +207,9 @@ void dequeDemo() {
 
 int main() {
     // vector_demo();
-    stringDemo();
+    // stringDemo();
     // listDemo();
-    // setDemo();
+    setDemo();
     // mapDemo();
     // queueDemo();
     // stackDemo();
