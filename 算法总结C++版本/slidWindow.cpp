@@ -3,7 +3,7 @@
 #include <vector>
 using namespace std;
 
-
+// 滑动窗口中最大值
 vector<int> getSlidMax(vector<int> vec, int size) {
     vector<int> vec_res;
     if (vec.size() == 0) {
