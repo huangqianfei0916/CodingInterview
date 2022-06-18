@@ -202,11 +202,7 @@ bool judge(TreeNode* root) {
         return false;
     }
     bool flag = dc(root->left, root->right);
-    if (flag) {
-        cout << "对称" << endl;
-    } else {
-        cout << "不对称" << endl;
-    }
+
     return flag;
 }
 
@@ -277,11 +273,11 @@ int balanceTree(TreeNode* root) {
         return 0;
     }
 
-    int left = treeDeep(root->left);
+    int left = balanceTree(root->left);
     if (left == -1) {
         return -1;
     }
-    int right = treeDeep(root->right);
+    int right = balanceTree(root->right);
     if (right == -1) {
         return -1;
     }

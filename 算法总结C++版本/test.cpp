@@ -48,9 +48,36 @@ void testVector() {
 }
 
 int main() {
-    string temp = "abcabcbb";
-    int d = lengthOfLongestSubstring(temp);
-    // cout << d;
-    testVector();
+    // string temp = "abcabcbb";
+    // int d = lengthOfLongestSubstring(temp);
+    // // cout << d;
+    // testVector();
+    // vector<int> vec;
+    // vector<int> vec1;
+    // vec.push_back(1);
+    // vec.push_back(2);
+    // vec.push_back(4);
+    // vec.push_back(9);
+    // int d = *max_element(vec.begin(), vec.end());
+    // int target = 2533;
+    // int first = 2533 / 1000;
+
+    // vector<int>::iterator it = find(vec.begin(), vec.end(), first);
+    // int flag = 0;
+    // string df = to_string(target);
+    // cout << df << endl;
+    // for (int i = 0; i < df.size(); ++i) {
+    //     cout << df[i] - '0' << endl;
+    // }
+
+    string sd = "test";
+    char temp = sd[0];
+    vector<char> d;
+    d.push_back('t');
+    if (d[0] == temp) {
+        cout << "ds";
+    }
+
+
 
 }
