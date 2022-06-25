@@ -8,6 +8,8 @@
 #include <stack>
 #include <deque>
 
+#include <math.h>
+
 using namespace std;
 
 /*
@@ -205,11 +207,31 @@ void dequeDemo() {
 
 }
 
+
+long quickPow(int x, long n) {
+    long res = 1;
+    long tt = x;
+    while (n != 0) {
+        if ((n & 1) == 1) {
+            res *= tt;
+            res %= 1000000007;
+        }
+        tt *= tt;
+        tt %= 1000000007;
+        n /= 2;
+    }
+    return res;
+}
+
+void test() {
+
+}
+
 int main() {
     // vector_demo();
     // stringDemo();
     // listDemo();
-    setDemo();
+    // setDemo();
     // mapDemo();
     // queueDemo();
     // stackDemo();
@@ -220,6 +242,12 @@ int main() {
     // a[0] = 200;
     // arrDemo(a);
     // cout << a[0];
+
+    // cout << quickPow(2, 4) << endl;
+    int a = 0; 
+
+
+
 
 
     return 0;
