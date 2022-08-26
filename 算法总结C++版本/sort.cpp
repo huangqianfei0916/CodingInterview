@@ -3,21 +3,23 @@
 #include <map>
 using namespace std;
 
-void swap(vector<int>& vec, int i, int j) {
-    int temp = vec[i];
-    vec[i] = vec[j];
-    vec[j] = temp;
-}
+// void swap(vector<int>& vec, int i, int j) {
+//     int temp = vec[i];
+//     vec[i] = vec[j];
+//     vec[j] = temp;
+// }
 
 int partion(vector<int>& vec, int start, int end) {
     int index = start + rand() % (end - start + 1);
-    swap(vec, index, end);
+    // swap(vec, index, end);
+    swap(vec[index], vec[end]);
     int small = start -1;
     for (int i = start; i <= end; ++i) {
-        if (vec[i] >= vec[end]) {
+        if (vec[i] <= vec[end]) {
             small++;
             if (i > small) {
-                swap(vec, i, small);
+                // swap(vec, i, small);
+                swap(vec[i], vec[small]);
             }
         }
     }
@@ -40,18 +42,11 @@ void QuickSort(vector<int>& vec, int start, int end) {
 }
 
 int main() {
-    // vector<int> vec = {30, 2, 1, 5, 4};
-    // QuickSort(vec, 0, vec.size() - 1);
-    // for (int i = 0; i < vec.size(); ++i) {
-    //     cout << vec[i] << endl;
-    // }
-    vector<int> vec(4);
-    // 4
-    cout << vec.size() << endl;
-    for (int i = 0; i < 5; ++i) {
-        vec.push_back(i);
+    vector<int> vec = {30, 2, 1, 5, 4};
+    QuickSort(vec, 0, vec.size() - 1);
+    for (int i = 0; i < vec.size(); ++i) {
+        cout << vec[i] << endl;
     }
-    // 9
-    cout << vec.size();
+
 
 }

@@ -49,8 +49,26 @@ public:
     }
 };
 
+long quickPow(int m, int n) {
+    long res = 1;
+    long tt = m;
+    while (n != 0) {
+        if ((n & 1) == 1) {
+            res *= tt;
+            res = res % 1000000007;
+        }
+        tt *= tt;
+        tt = tt % 1000000007;
+        n = n / 2;
+
+    }
+    return res;
+}
+
 int main() {
     Solution s;
-    s.movingCount(3, 2, 17);
+    // s.movingCount(3, 2, 17);
+    long res = quickPow(2, 3);
+    cout << res;
 
 }

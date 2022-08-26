@@ -426,5 +426,9 @@ int main(){
     hxJudge(temp);
     subTree(d, d);
 
+    vector<int> vec = {1, 2, 3, 4};
+    int ds = find(vec.begin(), vec.end(), 3) - vec.begin();
+    cout << ds;
+
     return 0;
 }

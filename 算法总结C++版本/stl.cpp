@@ -43,6 +43,7 @@ void vector_demo() {
     } else {
         cout << "no" << endl;
     }
+    
     // 排序，降序只需要将起末颠倒即可
     sort(vec.rbegin(), vec.rend());
     // 反转
@@ -131,6 +132,7 @@ void listDemo() {
     l.push_back(3);
     l.push_front(0);
     l.pop_back();
+    
     for (list<int>::iterator it = l.begin(); it != l.end(); ++it) {
         cout << *it << endl;
     }
