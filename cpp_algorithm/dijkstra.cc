@@ -41,6 +41,9 @@ Node* cal_min_node(list<Node*> cal_list, list<Node*> uncal_list) {
     
     for (auto uncal_item : uncal_list) {
         for (auto marked_item : cal_list) {
+            if (matrix[marked_item->id][uncal_item->id] == N) {
+                continue;
+            }
             int dis = marked_item->min_length + matrix[marked_item->id][uncal_item->id];
             if (dis < uncal_item->min_length) {
                 uncal_item->min_length = dis;
