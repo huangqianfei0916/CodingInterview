@@ -10,13 +10,13 @@ import java.util.List;
 class Vertex {
     public int id;
     public Vertex father;
-    public int minLenth = 10000;
+    public int minLenth = Integer.MAX_VALUE;
 }
 
 public class Dijkstra {
  
     static int[][] matrix = new int[6][6];
-    final static int N = 10000;
+    final static int N = Integer.MAX_VALUE;
  
     public static void main(String[] args) {
  
@@ -67,10 +67,13 @@ public class Dijkstra {
     }
 
     static Vertex FindVer(List<Vertex> Marked, List<Vertex> UnMarked){
-        int M = 10000;
+        int M = Integer.MAX_VALUE;
         Vertex v = null;
         for (Vertex ve : UnMarked) {
             for (Vertex vr : Marked) {
+                if (matrix[vr.id][ve.id] == N) {
+                    continue;
+                }
                 int all_p = vr.minLenth + matrix[vr.id][ve.id];
                 System.out.println(vr.id + "-" + ve.id + "=" + all_p);
         
@@ -78,7 +81,7 @@ public class Dijkstra {
                     ve.minLenth = all_p;
                     ve.father = vr;
                 }
-                System.out.println(ve.minLenth);
+
             }
             if (ve.minLenth < M) {
                 M = ve.minLenth;
