@@ -4,6 +4,7 @@
  * @Description: 
  * Dijkstra算法首先通过广度优先遍历的方式计算出各个顶点的（父节点，距离首节点的最短路径）
  * 然后通过最后节点的父节点进行回朔，得到最终的路径
+ * https://blog.csdn.net/Xing_LG/article/details/124864695
  */
 #include <iostream>
 #include <vector>
@@ -32,10 +33,11 @@ void init_matrix() {
 
 }
 
+// 每个节点的最小距离（节点距离首节点的距离），
+// 求出每个未计算节点的距离到已经计算节点的距离，取最小的就是下一个节点
 Node* cal_min_node(list<Node*> cal_list, list<Node*> uncal_list) {
     int M = 10000;
     Node* v = nullptr;
-    
     
     for (auto uncal_item : uncal_list) {
         for (auto marked_item : cal_list) {
