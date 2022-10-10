@@ -12,12 +12,12 @@
 
 using namespace std;
 
-const int N = 10000;
+const int N = 0x7fffffff;
 
 struct Node {
     int id;
     Node* father;
-    int min_length = 10000;
+    int min_length = 0x7fffffff;
 };
 
 vector<vector<int>> matrix(6, vector<int>(6));
@@ -36,7 +36,7 @@ void init_matrix() {
 // 每个节点的最小距离（节点距离首节点的距离），
 // 求出每个未计算节点的距离到已经计算节点的距离，取最小的就是下一个节点
 Node* cal_min_node(list<Node*> cal_list, list<Node*> uncal_list) {
-    int M = 10000;
+    int M = 0x7fffffff;
     Node* v = nullptr;
     
     for (auto uncal_item : uncal_list) {
