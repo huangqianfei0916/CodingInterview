@@ -19,6 +19,10 @@ using namespace std;
 
 可以访问下表的容器：vector,deque,map,
 但是，vector和deque在初始化大小时候，不能使用下标插入元素，
+
+priority_queue：模版参数一共三个，数据类型，容器，比较方式；
+后两个参数默认情况下，就是大顶堆了
+选择指定的比较方式时，第二个参数容器不可缺省
 */
 
 void vector_demo() {
@@ -225,7 +229,43 @@ long quickPow(int x, long n) {
     return res;
 }
 
-void test() {
+// #include <queue>
+void priority_queue_demo() {
+    vector<int> vec = { 1,2,4,3,8,6,1,4 };
+	priority_queue<int> pq;
+	for (auto& item : vec) {
+		pq.push(item);
+	}
+	while (pq.size()) {
+		cout << pq.top() << " ";
+        pq.pop();
+    }
+    cout << endl;
+
+    // 指定第三个参数时候，第二个参数必须指定
+    priority_queue<int, vector<int>, greater<int>> pq2;
+    for (auto& item : vec) {
+        pq2.push(item);
+    }
+    while (pq2.size()) {
+        cout << pq2.top() << " ";
+        pq2.pop();
+    }
+}
+
+void split_test() {
+    string demo = "123 456 789";
+    int pre = 0;
+    int pos = demo.find(" ");
+
+    while (string::npos != pos || string::npos != pre) {
+        demo = demo.substr(pre, pos - pre);
+        cout << demo << endl;
+        pre = pos;
+        pos = demo.find(" ");
+        pos = pos + pre;
+        cout << pre << "-" << pos << endl;
+    }
 
 }
 
@@ -246,10 +286,9 @@ int main() {
     // cout << a[0];
 
     // cout << quickPow(2, 4) << endl;
-    int a = 0; 
+    // int a = 0; 
 
-
-
+    // priority_queue_demo();
 
 
     return 0;
