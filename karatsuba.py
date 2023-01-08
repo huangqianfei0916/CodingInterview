@@ -54,4 +54,4 @@ class karatsuba:
 
 k = karatsuba()
 
-print(k.multiply(773920, 583922303))
+print(k.multiply(32, 123))
