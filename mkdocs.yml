@@ -1,4 +1,41 @@
-site_name: Coding
+site_name: "剑指offer"
+
+nav:
+  - 简介: index.md
+  - 剑指offer:
+      - CodingInterviews/JZ03-数组中重复的数字.md
+      - CodingInterviews/JZ04-二维数组中的查找.md
+      - CodingInterviews/JZ05-替换空格.md
+      - CodingInterviews/JZ06-从尾到头打印链表.md
+      - CodingInterviews/JZ07-重建二叉树.md
+      - CodingInterviews/JZ09-用两个栈实现队列.md
+      - CodingInterviews/JZ10-1-斐波那契数列.md
+      - CodingInterviews/JZ10-2-青蛙跳台阶问题.md
+      - CodingInterviews/JZ11-旋转数组的最小数字.md
+      - CodingInterviews/JZ12-矩阵中的路径.md
+      - CodingInterviews/JZ13-机器人的运动范围.md
+      - CodingInterviews/JZ14-剪绳子.md
+      - CodingInterviews/JZ15-二进制中1的个数.md
+      - CodingInterviews/JZ16-数值的整数次方.md
+      - CodingInterviews/JZ17-打印从1到最大的n位数.md
+      - CodingInterviews/JZ18-删除链表的节点.md
+      - CodingInterviews/JZ20-表示数值的字符串.md
+      - CodingInterviews/JZ21-调整数组顺序使奇数位于偶数前面.md
+      - CodingInterviews/JZ22-链表中倒数第k个节点.md
+      - CodingInterviews/JZ24-反转链表.md
+      - CodingInterviews/JZ25-合并两个排序的链表.md
+      - CodingInterviews/JZ26-树的子结构.md
+      - CodingInterviews/JZ27-翻转二叉树.md
+      - CodingInterviews/JZ28-判断对称二叉树.md
+      - CodingInterviews/JZ29- 螺旋遍历二维数组.md
+      - CodingInterviews/JZ30-最小栈.md
+      - CodingInterviews/JZ31-栈的压入、弹出序列.md
+      - CodingInterviews/JZ32-从上往下打印二叉树.md
+      - CodingInterviews/JZ33-二叉搜索树的后序遍历序列.md
+      - CodingInterviews/JZ34-二叉树中和为某一值的路径(二).md
+      - CodingInterviews/JZ35-复杂链表的复制.md
+      - CodingInterviews/JZ36-将二叉搜索树转化为排序的双向链表.md
+      - CodingInterviews/JZ37-序列化反序列化二叉树.md
 
 
 theme:
