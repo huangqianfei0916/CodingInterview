@@ -49,11 +49,16 @@ void vector_demo() {
     }
     
     // 排序，降序只需要将起末颠倒即可
-    sort(vec.rbegin(), vec.rend());
+    // sort(vec.rbegin(), vec.rend());
+    sort(vec.begin(), vec.end());
     // 反转
     reverse(vec.begin(), vec.end());
     // 大小
     cout << vec.size() << vec.empty() << endl;
+
+    for (auto& item : vec) {
+        cout << item << endl;
+    }
     
     // 清空
     vec.clear();
@@ -139,6 +144,9 @@ void listDemo() {
     
     for (list<int>::iterator it = l.begin(); it != l.end(); ++it) {
         cout << *it << endl;
+    }
+    for (auto& item : l) {
+        cout << item << endl;
     }
 
 }
@@ -272,7 +280,7 @@ void split_test() {
 int main() {
     // vector_demo();
     // stringDemo();
-    // listDemo();
+    listDemo();
     // setDemo();
     // mapDemo();
     // queueDemo();
