@@ -1,2 +1,23 @@
 site_name: Coding
-name: readthedocsnav
+
+
+theme:
+  name: material
+  palette:
+    #scheme: slate
+    scheme: default 
+  features:
+    - navigation.tabs
+
+extra:
+  search:
+    language: 'en, jp'
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.mark
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.snippets
